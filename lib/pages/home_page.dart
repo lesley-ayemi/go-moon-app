@@ -64,6 +64,7 @@ class HomePage extends StatelessWidget {
         children: [
           _destinationDropDownWidget(),
           _travellersInformationWidget(),
+          _rideButton(),
         ],
       ),
     );
@@ -72,7 +73,7 @@ class HomePage extends StatelessWidget {
   Widget _destinationDropDownWidget() {
     return CustomDropDownButtonClass(
       values: const [
-        'James Web Station',
+        'Central Park Station',
         'Prenure Station',
       ],
       width: _deviceWidth,
@@ -94,6 +95,26 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth * 0.40,
         ),
       ],
+    );
+  }
+
+  Widget _rideButton() {
+    return Container(
+      margin: EdgeInsets.only(bottom: _deviceHeight * 0.01),
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: MaterialButton(
+        onPressed: () {},
+        child: Text(
+          "Book Ride!",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
     );
   }
 }
