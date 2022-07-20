@@ -17,13 +17,21 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: [
-              _pageTitle(),
-              _bookRideWidget(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _pageTitle(),
+                  _bookRideWidget(),
+                ],
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: _astroImageWidget(),
+              ),
             ],
           ),
         ),
@@ -33,7 +41,7 @@ class HomePage extends StatelessWidget {
 
   Widget _pageTitle() {
     return const Text(
-      "#GoMoon",
+      "#SpaceX",
       style: TextStyle(
         color: Colors.white,
         fontSize: 70,
@@ -45,6 +53,8 @@ class HomePage extends StatelessWidget {
   // _ coming before a name signifys private
   Widget _astroImageWidget() {
     return Container(
+      height: _deviceHeight * 0.50,
+      width: _deviceWidth * 0.65,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
@@ -73,7 +83,7 @@ class HomePage extends StatelessWidget {
   Widget _destinationDropDownWidget() {
     return CustomDropDownButtonClass(
       values: const [
-        'Central Park Station',
+        'Nasa Space Station',
         'Prenure Station',
       ],
       width: _deviceWidth,
@@ -108,7 +118,7 @@ class HomePage extends StatelessWidget {
       ),
       child: MaterialButton(
         onPressed: () {},
-        child: Text(
+        child: const Text(
           "Book Ride!",
           style: TextStyle(
             color: Colors.black,
